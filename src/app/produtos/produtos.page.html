@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">
+      Motor's Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card 
+  [routerLink]="['/produto-detalhes', obj.id]"  
+  *ngFor="let obj of produtos">
+    <ion-card-header>
+      <ion-img [src]="obj.foto"></ion-img>
+
+      <ion-card-title>
+        {{ obj.nome }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{ obj.id }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Valor</ion-label>
+        <ion-input type="number" [ngModel]="obj.preco">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+       <ion-textarea>
+         {{obj.descricao}}
+       </ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" [routerLink]="['/produto-novo']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

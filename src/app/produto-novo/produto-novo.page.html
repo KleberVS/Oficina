@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>produto-novo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form>
+    <div *ngIf="produto.foto" style="text-align: center;">
+      <img [src]="produto.foto" width="300px">
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Foto:</ion-label>
+      <ion-input type="text" placeholder="Informe a foto" 
+      name="foto" [(ngModel)]="produto.foto">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" placeholder="Nome do produto" 
+      name="nome" [(ngModel)]="produto.nome">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Preço</ion-label>
+      <ion-input type="number" placeholder="Preço do produto" 
+      name="preco" [(ngModel)]="produto.preco">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Descrição</ion-label>
+      <ion-textarea name="descricao" [(ngModel)]="produto.descricao"></ion-textarea>
+    </ion-item>
+
+    <ion-button (click)="cadastrar()" color="success" expand="block">
+      Salvar
+      <ion-icon slot="end" name="save"></ion-icon>
+    </ion-button>
+
+  </form>
+</ion-content>
